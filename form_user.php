@@ -26,6 +26,7 @@ if (!isset($_SESSION["user"])){
 
             <div class="card-body">
             <?php
+            // update user
                 if (isset($_GET["id_user"])) {
                     include("connection.php");
                     $id_user = $_GET["id_user"];

@@ -2,6 +2,7 @@
 include("connection.php");
 
 if (isset($_POST["simpan_user"])) {
+    // proses insert
     // tampung data input anggota dari user
     
     $nama_user = $_POST["nama_user"];
@@ -16,7 +17,7 @@ if (isset($_POST["simpan_user"])) {
     //eksekusi perintah sql
     $tambah = mysqli_query($connect, $sql);
 
-    //direct ke halaman list-anggota
+    //direct ke halaman list member
     if ($tambah) {
         header('Location:list_user.php');
     } else {

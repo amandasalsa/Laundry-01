@@ -150,7 +150,7 @@
                                         </a> 
                                 </div>
                                 <div class="col-lg-6 col-md-6 mt-2">
-                                        <a href="detail_transaksi.php?id_transaksi=<?php echo $transaksi["id_transaksi"];?>">
+                                        <a href="list_paket.php?id_transaksi=<?php echo $transaksi["id_transaksi"];?>">
                                             <button class="btn btn-outline-danger  form-control btn-block">
                                                 <i class="fa fa-info"></i>
                                             </button>
@@ -159,51 +159,14 @@
                                 </div>
 
                             <div class="row">
-                                <div class="col-lg-12 col-md-6">
-                                    <small class="text-danger">List Laundry</small>
-                                        <ul>
-                                        <?php
-                                        $id_transaksi = $transaksi["id_transaksi"];
-                                        $sql = "select * from detil_transaksi 
-                                        inner join paket
-                                        on detil_transaksi.id_paket = paket.id_paket
-                                        where id_transaksi = '$id_transaksi'";
-
-                                        //eksekusi
-                                        $hasil_paket = mysqli_query($connect, $sql);
-                            
-                                        //dijadikan array
-                                        while ($paket = mysqli_fetch_array($hasil_paket)) {
-                                        ?>
-                                            <li>
-                                                <h6>
-                                                    <?=($paket["jenis"])?>
-                                                    <i class="text-secondary">
-                                                        <br><small>(With Price Rp<?=($paket["harga"])?>)</small>
-                                                        <br><small>(Transaction duration  <?=($transaksi["batas_waktu"])?> hari)</small>
-                                                    </i>
-                                                </h6>
-                                            </li>
-                                        
-                                        </ul>
-                                </div>
-
-                                <div class="col-lg-2 col-md-6">
-                                    <small class="text-danger">Total</small></br>
-                                            <h5><?=($paket["qty"])?></h5>
-                                </div>
-                                <?php
-                                        }
-                                        ?>
-
                                 <?php if ($transaksi["id_pembayaran"] ==  null){?>
-                                <div class="col-lg-6 col-md-6">
+                                <div class="col-lg-12 col-md-12 text-center">
                                     <small class="text-danger">Status</small></br>
                                     <div class="badge badge-pill badge-dark">
                                         <?=($transaksi["status"])?>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
+                                <div class="col-lg-12 col-md-12 text-center">
                                     <small class="text-danger">Payment</small></br>
                                     <div class="badge badge-pill badge-danger">
                                         <?=($transaksi["pembayaran"])?>
@@ -231,13 +194,13 @@
 
 
                                 <?php } else if($transaksi["id_pembayaran" > 0]) {?>
-                                <div class="col-lg-2 col-md-2">
+                                <div class="col-lg-12 col-md-12 text-center">
                                     <small class="text-danger">Status</small></br>
                                         <div class="badge badge-pill badge-dark">
                                             <?=($transaksi["status"])?>
                                         </div>
                                 </div>
-                                <div class="col-lg-2 col-md-2">
+                                <div class="col-lg-12 col-md-12 text-center">
                                     <?php
                                     $id_transaksi = $transaksi["id_transaksi"];
                                     $sql = "update transaksi set pembayaran = 'Terbayar'

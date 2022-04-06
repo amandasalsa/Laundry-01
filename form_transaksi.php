@@ -82,7 +82,6 @@ if (!isset($_SESSION["user"])) {
                 ?>
 
                 Laundry Packages
-                <div class="form-control">
                 <?php
                 include("connection.php");
                 $id_transaksi = $transaksi["id_transaksi"];
@@ -99,7 +98,6 @@ if (!isset($_SESSION["user"])) {
                     Total
                     <input type="number" name="qty" class="form-control" required
                     value="<?=$detil_transaksi["qty"];?>" readonly>
-                </div>
                 <?php
                 }
                 ?>
@@ -184,7 +182,6 @@ if (!isset($_SESSION["user"])) {
 
                 <!-- tampilan pilihan paket yang akan disewa -->
                 Choose the Package to be Laundered
-                <div class="form-control">
                 <select name="id_paket[]" class="form-control mb-2" required >
                     <?php
                     $sql = "select * from paket";
@@ -200,13 +197,14 @@ if (!isset($_SESSION["user"])) {
                     }
                     ?>
                 </select>
-                    Total
-                    <input type="number" name="qty" class="form-control" required>
-                </div>
 
+                Total
+                <input type="number" name="qty" 
+                class="form-control mb-2" required>
+                
                 Duration (day)
                 <input type="number" name="batas_waktu"
-                class="form-control mb-2 mt-2">
+                class="form-control mb-2">
 
                 Category
                 <select name="kategori" class="form-control mb-2">
@@ -217,10 +215,10 @@ if (!isset($_SESSION["user"])) {
 
                 Status
                 <select name="status" class="form-control mb-2">
-                    <option value="Baru">Baru</option>
-                    <option value="Proses">Proses</option>
-                    <option value="Selesai">Selesai</option>
-                    <option value="Diambil">Diambil</option>
+                    <option value="Baru">New</option>
+                    <option value="Proses">Process</option>
+                    <option value="Selesai">Finished</option>
+                    <option value="Diambil">Taken</option>
                 </select>
                 
                 Payment

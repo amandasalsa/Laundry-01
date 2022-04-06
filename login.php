@@ -23,10 +23,6 @@
                     <b>Password</b>
                     <input type="password" name="password" class="form-control mb-2"
                     placeholder="Password" required>
-                    <!-- <b>Anda Login sebagai :</b>
-                    <p><input type='radio' name='role' value='Kasir' /> Kasir</p>
-                    <p><input type='radio' name='role' value='Admin' /> Admin</p> -->
-                    
                     <div class="card-footer">
                         <button type="submit" name="login" class="btn btn-block btn-danger form-control">Login</button>
                     </div>
